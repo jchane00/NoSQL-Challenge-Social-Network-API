@@ -71,12 +71,11 @@ router.delete("/:id", async (req, res) => {
 });
 
 router.delete("/:userId/friends/:friendId", async (req, res) => {
-try {
-  const changes = await User.findByIdAndRemove(req.params.id);
-
-} catch (error) {
-  console.error(error);
+  try {
+    const changes = await User.findByIdAndRemove(req.params.id);
+  } catch (error) {
+    console.error(error);
     res.sendStatus(500);
-}
+  }
 });
 module.exports = router;
